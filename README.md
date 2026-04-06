@@ -38,8 +38,12 @@ import os
 
 # Configuration du client
 mlflow.set_tracking_uri("https://mlflow-tracking-server-production.up.railway.app")
-os.environ["MLFLOW_TRACKING_USERNAME"] = "admin"
-os.environ["MLFLOW_TRACKING_PASSWORD"] = "your_password"
+
+# Si accès : 
+os.environ["MLFLOW_ADMIN_USERNAME"] = "admin"
+os.environ["MLFLOW_ADMIN_PASSWORD"] = "your_password"
+
+Par défaut, le serveur est accessible à la lecture (READ ACCESS)
 
 # Python Utilisation 
 with mlflow.start_run(experiment_id="1"):
