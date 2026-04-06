@@ -24,11 +24,11 @@ git push origin main
 ### 4. Vérifier le déploiement
 ```bash
 # Health check
-curl https://mlflow-tracking-server.onrender.com/health
+curl https://mlflow-tracking-server-production.up.railway.app/health
 
 # Lister les experiments via l'API REST
 curl -u admin:password \
-  https://mlflow-tracking-server.onrender.com/api/2.0/mlflow/experiments/list
+  https://mlflow-tracking-server-production.up.railway.app/api/2.0/mlflow/experiments/list
 ```
 
 ## Utilisation depuis Python
@@ -37,7 +37,7 @@ import mlflow
 import os
 
 # Configuration du client
-mlflow.set_tracking_uri("https://mlflow-tracking-server.onrender.com")
+mlflow.set_tracking_uri("https://mlflow-tracking-server-production.up.railway.app")
 os.environ["MLFLOW_TRACKING_USERNAME"] = "admin"
 os.environ["MLFLOW_TRACKING_PASSWORD"] = "your_password"
 
