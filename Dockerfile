@@ -52,4 +52,4 @@ CMD ["sh", "-c", \
         --backend-store-uri ${DATABASE_URL} \
         --default-artifact-root ${MLFLOW_S3_BUCKET} \
         --serve-artifacts \
-        --gunicorn-opts '--workers 2 --timeout 120 --keep-alive 5'"]
+        --gunicorn-opts '--workers 1 --timeout 120 --keep-alive 5'"]
