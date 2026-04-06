@@ -1,6 +1,6 @@
-# MLflow Tracking Server — Render + Supabase + Cloudflare R2
+# MLflow Tracking Server - Backend store (PostgreSQL) - Artifact store (R2 - S3 compatible) 
 
-Tracking server MLflow auto-hébergé sur Render.  
+Tracking server MLflow auto-hébergé sur Railway.  
 Backend store : Supabase (PostgreSQL).  
 Artifact store : Cloudflare R2 (API S3-compatible).
 
@@ -8,7 +8,7 @@ Artifact store : Cloudflare R2 (API S3-compatible).
 
 | Composant | Technologie | Rôle |
 |-----------|-------------|------|
-| Compute | Render Web Service (Docker) | Hébergement du serveur MLflow |
+| Compute | Railway Web Service (Docker) | Hébergement du serveur MLflow |
 | Backend store | Supabase PostgreSQL | Runs, métriques, paramètres, tags |
 | Artifact store | Cloudflare R2 | Modèles, figures, fichiers |
 | Auth | MLflow Basic Auth | Protection de l'UI et de l'API |
