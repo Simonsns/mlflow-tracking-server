@@ -1,19 +1,21 @@
-# MLflow Tracking Server - Backend store (PostgreSQL) - Artifact store (R2 - S3 compatible) 
+# MLflow Tracking Server - Backend Store (PostgreSQL) - Artifact Store (R2 - S3 Compatible)
 
-Tracking server MLflow auto-hébergé sur Railway.  
-Backend store : Supabase (PostgreSQL).  
-Artifact store : Cloudflare R2 (API S3-compatible).
+Standalone MLflow server:
+
+* Self-hosted MLflow Tracking Server on Railway
+* Backend store: Supabase (PostgreSQL)
+* Artifact store: Cloudflare R2 (S3-compatible API)
 
 ## Stack
 
-| Composant | Technologie | Rôle |
-|-----------|-------------|------|
-| Compute | Railway Web Service (Docker) | Hébergement du serveur MLflow |
-| Backend store | Supabase PostgreSQL | Runs, métriques, paramètres, tags |
-| Artifact store | Cloudflare R2 | Modèles, figures, fichiers |
-| Auth | MLflow Basic Auth | Protection de l'UI et de l'API |
+| Component      | Technology                   | Role                            |
+| -------------- | ---------------------------- | ------------------------------- |
+| Compute        | Railway Web Service (Docker) | Hosts the MLflow server         |
+| Backend store  | Supabase PostgreSQL          | Runs, metrics, parameters, tags |
+| Artifact store | Cloudflare R2                | Models, figures, files          |
+| Auth           | MLflow Basic Auth            | Secures UI and API              |
 
-## Déploiement
+## Deployment
 
 ```bash
 git add .
@@ -21,45 +23,48 @@ git commit -m "feat: MLflow tracking server on Railway"
 git push origin main
 ```
 
-### 4. Vérifier le déploiement
+### 4. Verify deployment
+
 ```bash
 # Health check
 curl https://mlflow-tracking-server-production.up.railway.app/health
 
-# Lister les experiments via l'API REST
+# List experiments via REST API
 curl -u admin:password \
   https://mlflow-tracking-server-production.up.railway.app/api/2.0/mlflow/experiments/list
 ```
 
-## Utilisation depuis Python
+## Usage from Python
+
 ```python
 import mlflow
 import os
 
-# Configuration du client
+# Configure client
 mlflow.set_tracking_uri("https://mlflow-tracking-server-production.up.railway.app")
 
-# Si accès : 
+# If authentication is required:
 os.environ["MLFLOW_ADMIN_USERNAME"] = "admin"
 os.environ["MLFLOW_ADMIN_PASSWORD"] = "your_password"
 
-Par défaut, le serveur est accessible à la lecture (READ ACCESS)
+# By default, the server is accessible in read-only mode
 
-# Python Utilisation 
+# Python usage
 with mlflow.start_run(experiment_id="1"):
     mlflow.log_param("learning_rate", 0.01)
     mlflow.log_metric("rmse", 0.42)
     mlflow.sklearn.log_model(model, "model")
 ```
 
-## Développement local
+## Local Development
+
 ```bash
-# Build de l'image
+# Build the image
 docker build -t mlflow-server .
 
-# Lancement avec le .env local
+# Run with local .env file
 docker run --env-file .env -p 8080:8080 mlflow-server
 
-# Accéder à l'UI
+# Open the UI
 open http://localhost:8080
 ```
