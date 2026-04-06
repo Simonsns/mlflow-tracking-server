@@ -17,7 +17,7 @@ Artifact store : Cloudflare R2 (API S3-compatible).
 
 ```bash
 git add .
-git commit -m "feat: MLflow tracking server on Render"
+git commit -m "feat: MLflow tracking server on Railway"
 git push origin main
 ```
 
