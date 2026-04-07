@@ -16,7 +16,7 @@ exec /opt/venv/bin/mlflow server \
     --port ${PORT:-8080} \
     --backend-store-uri ${DATABASE_URL} \
     --default-artifact-root mlflow-artifacts:/ \
-    --artifacts-destination ${MLFLOW_S3_BUCKET} \ 
+    --artifacts-destination ${MLFLOW_S3_BUCKET} \
     --serve-artifacts \
     --app-name basic-auth \
     --gunicorn-opts "--workers 1 --worker-class gthread --threads 4 --timeout 120"
