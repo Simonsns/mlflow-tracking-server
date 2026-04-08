@@ -21,8 +21,7 @@ RUN pip install --no-cache-dir \
     "setuptools<70" \
     mlflow[auth]==3.10.1 \
     boto3==1.35.0 \
-    psycopg2-binary==2.9.10 \
-    gunicorn==23.0.0
+    psycopg2-binary==2.9.10
 
 # ── Runtime stage ───────────────────────────────────────────────────
 FROM python:3.12-slim AS runtime

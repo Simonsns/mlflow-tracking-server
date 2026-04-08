@@ -20,4 +20,5 @@ exec /opt/venv/bin/mlflow server \
     --artifacts-destination ${MLFLOW_S3_BUCKET} \
     --app-name basic-auth \
     --allowed-hosts "*" \
-    --cors-allowed-origins "*"
+    --cors-allowed-origins "*" \
+    --uvicorn-opts "--workers 2 --timeout-keep-alive 120"
