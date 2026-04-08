@@ -22,4 +22,4 @@ exec /opt/venv/bin/mlflow server \
     --allowed-hosts "*" \
     --cors-allowed-origins "*" \
     --workers 1 \
-    --uvicorn-opts "--threads 1"
+    --uvicorn-opts "--timeout-keep-alive 120 --limit-concurrency 20"
