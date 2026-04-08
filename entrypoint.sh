@@ -15,10 +15,10 @@ exec /opt/venv/bin/mlflow server \
     --host 0.0.0.0 \
     --port ${PORT:-8080} \
     --backend-store-uri ${DATABASE_URL} \
-    --default-artifact-root s3://mlflow-default-root/runs \
+    --default-artifact-root mlflow-artifacts:/runs \
     --serve-artifacts \
     --artifacts-destination ${MLFLOW_S3_BUCKET} \
     --app-name basic-auth \
     --allowed-hosts "*" \
     --cors-allowed-origins "*" \
-    --uvicorn-opts "--workers 2 --timeout-keep-alive 120"
+    --uvicorn-opts "--workers 1 --timeout-keep-alive 120"
