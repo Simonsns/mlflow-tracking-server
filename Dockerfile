@@ -23,6 +23,7 @@ RUN pip install --no-cache-dir \
     sqlalchemy==2.0.48 \
     alembic==1.18.3 \
     numpy==2.4.3 \
+    flask-cors==6.0.0 \
     boto3==1.35.0 \
     psycopg2-binary==2.9.10
 
