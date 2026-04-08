@@ -21,4 +21,5 @@ exec /opt/venv/bin/mlflow server \
     --app-name basic-auth \
     --allowed-hosts "*" \
     --cors-allowed-origins "*" \
-    --workers 1
+    --workers 1 \
+    --threads 1
