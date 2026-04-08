@@ -20,5 +20,4 @@ exec /opt/venv/bin/mlflow server \
     --artifacts-destination ${MLFLOW_S3_BUCKET} \
     --app-name basic-auth \
     --allowed-hosts "*" \
-    --cors-allowed-origins "*" \
-    --gunicorn-opts "--workers 1 --worker-class gthread --threads 4 --timeout 120 --forwarded-allow-ips='*'"
+    --cors-allowed-origins "*"
