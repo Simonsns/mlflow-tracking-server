@@ -19,7 +19,7 @@ exec /opt/venv/bin/mlflow server \
     --serve-artifacts \
     --artifacts-destination ${MLFLOW_S3_BUCKET} \
     --app-name basic-auth \
-    --allowed-hosts "*" \
-    --allowed-origins "*" \
+    --allowed-hosts ${RAILWAY_PUBLIC_DOMAIN} \
+    --cors-allowed-origins ${RAILWAY_PUBLIC_DOMAIN} \
     --workers 1 \
     --uvicorn-opts "--limit-concurrency 20"
