@@ -21,4 +21,4 @@ exec /opt/venv/bin/mlflow server \
     --app-name basic-auth \
     --allowed-hosts "*" \
     --cors-allowed-origins "*" \
-    --uvicorn-opts "--workers 1 --timeout-keep-alive 120"
+    --workers 1

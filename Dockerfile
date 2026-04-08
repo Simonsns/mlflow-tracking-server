@@ -19,7 +19,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 # pkg_resources (setuptools < 70)
 RUN pip install --no-cache-dir \
     "setuptools<70" \
-    mlflow[auth]==3.10.1 \
+    mlflow-skinny[auth]==3.10.1 \
+    sqlalchemy=2.0.48 \
     boto3==1.35.0 \
     psycopg2-binary==2.9.10
 
